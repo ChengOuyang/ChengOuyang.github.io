@@ -92,7 +92,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="ChengOuyang">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/服务端/index.html">
 <meta property="og:site_name" content="ChengOuyang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ChengOuyang">
@@ -123,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/服务端/"/>
 
 
 
 
 
-  <title>ChengOuyang</title>
+  <title>Tag: 服务端 | ChengOuyang</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -154,9 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,161 +237,45 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        服务端
+        <small>Tag</small>
+      </h2>
+    </div>
+
     
       
 
-  
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/28/iOS 客户端与服务端做时间同步/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="欧阳城">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ChengOuyang">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h1 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
+            <a class="post-title-link" href="/2017/04/28/iOS 客户端与服务端做时间同步/" itemprop="url">
               
-                
-                <a class="post-title-link" href="/2017/04/28/iOS 客户端与服务端做时间同步/" itemprop="url">
-                  iOS 客户端与服务端做时间同步
-                </a>
+                <span itemprop="name">iOS 客户端与服务端做时间同步</span>
               
-            
-          </h1>
+            </a>
         
+      </h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-28T09:37:05+08:00">
-                2017-04-28
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-04-28T09:37:05+08:00"
+              content="2017-04-28" >
+          04-28
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-416679.jpg" alt=""></p>
-<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>我们做客户端的时候，有时会需要对客户端与服务器的时间进行同步，比如抢购活动、倒计时等。这时我们要考虑如何准备地与服务器的时间进行同步，同时防止用户本地的时间有误差时导致的问题。</p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><p>为了实现以上需求，我们需要：</p>
-<ol>
-<li><p>获取服务器某一时刻 <code>A</code> 的时间；</p>
-</li>
-<li><p>记录获取到时刻 <code>A</code> 时的本地时间 <code>B</code>；</p>
-</li>
-<li><p>需要用到时间时，获取当前本地时间 <code>C</code>，当 <code>C - B</code> 作为时间间隔 <code>D</code>，则 <code>A + D</code> 则是当前服务器的时间。</p>
-</li>
-</ol>
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><ol>
-<li><p>从上面的步骤，我们可以得到，要消除用户修改时间导致的影响，必须保证 <code>B</code> 和 <code>C</code> 与系统时间无关；</p>
-</li>
-<li><p><code>iOS</code> 中正好有提供这样两个接口：</p>
-<ol>
-<li><p>获取设备当前时间 <code>Now</code>，该值受系统时间影响，用户如果修改时间，值也会随着变化；</p>
-</li>
-<li><p>获取设备上次重启的时间 <code>BootTime</code>，该值受系统时间影响，用户如果修改时间，值也会随着变化；；</p>
-</li>
-</ol>
-</li>
-<li><p>由上面 <code>iOS</code> 提供的两个接口，我们可以获取本地时间 <code>B</code>、<code>C</code>：设备自上次重启后运行的时间（<code>BootTime - Now</code>），该值与系统时间无关；</p>
-</li>
-</ol>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>获取当前 Unix Time：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">static func now() -&gt; Int &#123;</div><div class="line">    var now =  timeval()</div><div class="line">    var tz = timezone()</div><div class="line">    gettimeofday(&amp;now, &amp;tz)</div><div class="line">    return now.tv_sec</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>获取设备上次重启的 Unix Time：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">func boottime() -&gt; Int &#123;</div><div class="line">    </div><div class="line">    var mid = [CTL_KERN, KERN_BOOTTIME]</div><div class="line">    var boottime = timeval()</div><div class="line">    var size = MemoryLayout.size(ofValue: boottime)</div><div class="line">    </div><div class="line">    if sysctl(&amp;mid, 2, &amp;boottime, &amp;size, nil, 0) != -1 &#123;</div><div class="line">        return boottime.tv_sec</div><div class="line">    &#125;</div><div class="line">    return 0</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>时间校准：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 接口获取服务器时间处理</div><div class="line">let serverTime = xxx						// 获取到的服务器时间</div><div class="line">let runTime0 = now() - boottime()			// 当前设备运行时间</div><div class="line"></div><div class="line">// 需要用到时间时</div><div class="line">let runTime1 = now() - boottime()			// 当前时刻设备运行时间</div><div class="line">let currentTime = serverTime + runTime1 	// 当前服务器时间</div></pre></td></tr></table></figure>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://mrpeak.cn/blog/ios-time/" target="_blank" rel="external">iOS关于时间的处理
-</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    </header>
   </article>
 
 
     
-  </section>
+  </div>
 
   
 

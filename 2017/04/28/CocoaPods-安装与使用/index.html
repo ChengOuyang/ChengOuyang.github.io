@@ -1,0 +1,760 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="安装 打开Finder/应用程序/实用工具/终端； CocoaPods 是用 Ruby 写的，所以运行需要安装 Ruby 环境。Mac 中已经自带 Ruby 环境，如果认为 Ruby 环境不够新，可以先在终端输入以下命令进行更新：1gem update –system   由于安装 CocoaPods 时要访问cocoapods，因为可能被屏蔽了，因此用淘宝的Ruby镜像来访问该网站，在终端输入以">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CocoaPods 安装与使用">
+<meta property="og:url" content="http://yoursite.com/2017/04/28/CocoaPods-安装与使用/index.html">
+<meta property="og:site_name" content="ChengOuyang">
+<meta property="og:description" content="安装 打开Finder/应用程序/实用工具/终端； CocoaPods 是用 Ruby 写的，所以运行需要安装 Ruby 环境。Mac 中已经自带 Ruby 环境，如果认为 Ruby 环境不够新，可以先在终端输入以下命令进行更新：1gem update –system   由于安装 CocoaPods 时要访问cocoapods，因为可能被屏蔽了，因此用淘宝的Ruby镜像来访问该网站，在终端输入以">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/808722-be113f89b0be8c6e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/808722-7c928ad3aeabadb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/808722-86e60d788da8a1c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-04-28T04:24:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CocoaPods 安装与使用">
+<meta name="twitter:description" content="安装 打开Finder/应用程序/实用工具/终端； CocoaPods 是用 Ruby 写的，所以运行需要安装 Ruby 环境。Mac 中已经自带 Ruby 环境，如果认为 Ruby 环境不够新，可以先在终端输入以下命令进行更新：1gem update –system   由于安装 CocoaPods 时要访问cocoapods，因为可能被屏蔽了，因此用淘宝的Ruby镜像来访问该网站，在终端输入以">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/808722-be113f89b0be8c6e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/28/CocoaPods-安装与使用/"/>
+
+
+
+
+
+  <title>CocoaPods 安装与使用 | ChengOuyang</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ChengOuyang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">iOS 全职开发者</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/28/CocoaPods-安装与使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="欧阳城">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ChengOuyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CocoaPods 安装与使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-28T12:21:21+08:00">
+                2017-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ol>
+<li>打开Finder/应用程序/实用工具/终端；</li>
+<li><em>CocoaPods</em> 是用 <em>Ruby</em> 写的，所以运行需要安装 <em>Ruby</em> 环境。<em>Mac</em> 中已经自带 <em>Ruby</em> 环境，如果认为 <em>Ruby</em> 环境不够新，可以先在终端输入以下命令进行更新：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem update –system</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>由于安装 <em>CocoaPods</em> 时要访问<a href="https://cocoapods.org" target="_blank" rel="external">cocoapods</a>，因为可能被屏蔽了，因此用淘宝的Ruby镜像来访问该网站，在终端输入以下命令进行替换镜像：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">gem sources --remove https://rubygems.org/</div><div class="line">gem sources -a https://ruby.taobao.org/</div></pre></td></tr></table></figure></p>
+<p>成功后，使用以下命令查看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem sources –l</div></pre></td></tr></table></figure></p>
+<p>可以看到替换镜像成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*** CURRENT SOURCES ***</div><div class="line">https://ruby.taobao.org/</div></pre></td></tr></table></figure></p>
+<p>接下来是真正的安装，在终端输入以下命令（如果 Ruby 版本过低，以下命令会报错）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install cocoapods</div></pre></td></tr></table></figure></p>
+<p>如果 Ruby 版本过低导致无法安装，则运行以下命令进行升级：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">curl -L get.rvm.io | bash -s stable    // 安装 rvm</div><div class="line">source ~/.bashrc  // 更新</div><div class="line">source ~/.bash_profile  // 更新</div><div class="line">ruby -v  // 查看当前 ruby 版本</div><div class="line">rvm list known  // 列出可安装版本</div><div class="line">rvm install 2.2  // 安装 ruby 2.2 版本</div></pre></td></tr></table></figure></p>
+<p>等待安装成功后使用以下命令配置 <em>cocoapods</em>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod setup</div></pre></td></tr></table></figure></p>
+<ol>
+<li>安装指定版本的cocoapod：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install cocoapods -v 0.34.4</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="创建工程并配置第三方类库"><a href="#创建工程并配置第三方类库" class="headerlink" title="创建工程并配置第三方类库"></a>创建工程并配置第三方类库</h4><ol>
+<li>首先打开 <em>Xcode</em> 新建一个工程，假设为 <em>Desktop/CocoaPodsDemo</em> ，并且我们要往该工程中导入 <em>AFNetworking</em> 这个类库。<br><em>AFNetworking</em> 在 <em>Github</em> 中的地址为：<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">https://github.com/AFNetworking/AFNetworking</a><br>这里也说明了如何使用CocoaPods配置该类库：<br><img src="http://upload-images.jianshu.io/upload_images/808722-be113f89b0be8c6e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置"></li>
+<li>以上说明是我们应该如何书写 <em>Podfile</em> 文件。一般非常流行和成熟的类库都得到了 <em>CocoaPods</em> 的支持，并且有这个说明。如何确定 <em>CocoaPods</em> 是否支持我们想要加入的目标类库？使用 <code>Search</code> 命令搜索类库名：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod search AFNetworking</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果 <em>CocoaPods</em> 支持，将会输出搜索到的所有类库版本和信息，以及在 <em>Podfile</em> 中配置的写法，例如：<br><img src="http://upload-images.jianshu.io/upload_images/808722-7c928ad3aeabadb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Podfile文件"></p>
+<ol>
+<li><p>先看看普通的工程目录：<br><img src="http://upload-images.jianshu.io/upload_images/808722-86e60d788da8a1c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="普通工程目录"><br>首先在我们的工程目录下创建 <em>Podfile</em> 文件，该文件用来控制 <em>CocoaPods</em> 的下载内容，该文件是没有后缀的，每个项目只需要一个 <em>Podfile</em> 文件，如果需要导入多个类库那么统一在该文件中书写下载内容。<br>创建过程：首先 <code>cd</code> 到工程目录，然后创建 <em>Podfile</em> 并且使用 <em>vim</em> 编写：</p>
+<ol>
+<li><p>创建文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd Desktop/CocoaPodsDemo/</div><div class="line">pod init    # 自动创建 Podfile 文件，也可以使用 touch Podfile 手动创建 Podfile 文件</div></pre></td></tr></table></figure>
+</li>
+<li><p>编写命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">platform:ios, &apos;7.0&apos;</div><div class="line">pod &quot;AFNetworking&quot;, &quot;~&gt;2.1&quot;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<p><em>Podfile</em> 中的两句文字的意思是，当前 <em>AFNetworking</em> 支持的 <em>iOS</em> 最高版本是 <em>iOS 7.0</em>, 要下载的 <em>AFNetworking</em> 版本是2.1。</p>
+<ol>
+<li>在有了 <em>Podfile</em> 后，在 <em>Podfile</em> 文件所在目录下输入以下命令安装类库：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod install</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>安装完成后，输出信息如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Analyzing dependencies</div><div class="line">Downloading dependencies</div><div class="line">Installing AFNetworking (2.1.0)</div><div class="line">Generating Pods project</div><div class="line">Integrating client project</div><div class="line"> [!] From now on use `CocoaPodsDemo.xcworkspace`.</div></pre></td></tr></table></figure></p>
+<p>最后一句表明，如果要正确打开工程我们应该打开最新生成的 <code>.xcworkspace</code> 文件。</p>
+<h4 id="编译运行"><a href="#编译运行" class="headerlink" title="编译运行"></a>编译运行</h4><p>如果一个项目中已经包含了 <em>CocoaPods</em> 的配置文件，但是编译却出现错误，那么我们仅需要一行命令就可以配置好所有的第三方类库了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod update</div></pre></td></tr></table></figure></p>
+<h4 id="仅添加要加入的库"><a href="#仅添加要加入的库" class="headerlink" title="仅添加要加入的库"></a>仅添加要加入的库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod install --verbose --no-repo-update</div></pre></td></tr></table></figure>
+<h4 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h4><p>在终端运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem uninstall cocoapods</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/28/Carthage-安装与使用/" rel="next" title="Carthage 安装与使用">
+                <i class="fa fa-chevron-left"></i> Carthage 安装与使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/28/iOS-国际化/" rel="prev" title="iOS 国际化">
+                iOS 国际化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="欧阳城" />
+          <p class="site-author-name" itemprop="name">欧阳城</p>
+           
+              <p class="site-description motion-element" itemprop="description">iOS</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建工程并配置第三方类库"><span class="nav-number">2.</span> <span class="nav-text">创建工程并配置第三方类库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编译运行"><span class="nav-number">3.</span> <span class="nav-text">编译运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#仅添加要加入的库"><span class="nav-number">4.</span> <span class="nav-text">仅添加要加入的库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卸载"><span class="nav-number">5.</span> <span class="nav-text">卸载</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">欧阳城</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

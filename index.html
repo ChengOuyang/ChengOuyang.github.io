@@ -90,12 +90,15 @@
 
 
 
+<meta name="description" content="iOS">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ChengOuyang">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="ChengOuyang">
+<meta property="og:description" content="iOS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ChengOuyang">
+<meta name="twitter:description" content="iOS">
 
 
 
@@ -172,7 +175,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">iOS 全职开发者</p>
       
   </div>
 
@@ -197,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -207,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -240,6 +243,855 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/28/Carthage-安装与使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="欧阳城">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ChengOuyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/28/Carthage-安装与使用/" itemprop="url">
+                  Carthage 安装与使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-28T12:21:30+08:00">
+                2017-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>在终端下运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install carthage</div></pre></td></tr></table></figure></p>
+<h4 id="配置第三方类库"><a href="#配置第三方类库" class="headerlink" title="配置第三方类库"></a>配置第三方类库</h4><ol>
+<li>到目标工程目录下创建 <em>Carthage</em> 文件：<br><img src="http://upload-images.jianshu.io/upload_images/808722-c578f75eca8e50b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目标工程目录"></li>
+<li>在终端上用vim写好要配置的库信息：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim Cartfile</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/808722-2091cde8f817eb44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Cartfile文件内容"></p>
+<ol>
+<li><p>运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">carthage update --platform iOS    # 仅编译 iOS 平台</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果目标工程是 <em>OS X</em> 应用， 在 <em>Xcode</em> 的目标应用程序 <em>target</em> 的 <code>General</code> 设置标签中的 <code>Embedded Binaries</code> 区域，将框架从 <em>Carthage.build</em> 文件夹拖拽进去。<em>OS X</em> 工程设置到此为止。</p>
+</li>
+<li>如果是目标工程是 <em>iOS</em> 应用，在 <em>Xcode</em> 的目标应用程序 <em>target</em> 的 <code>General</code> 设置标签中的 <code>Linked Frameworks and Libraries</code> 区域，将目标框架从 <em>Carthage/Build</em> 文件夹拖拽进去。继续接步骤6。<br><img src="http://upload-images.jianshu.io/upload_images/808722-aacae0c89e898e5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iOS"></li>
+<li>在 <em>Xcode</em> 的目标应用程序 <em>target</em> 的 <code>Build Phases</code> 添加新脚本 <code>New Run Script Phase</code>，输入内容：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/bin/carthage copy-frameworks</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/808722-fbbe373c506e4624.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>input Files处输入为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework</div></pre></td></tr></table></figure></p>
+<p>对应为原工程目录 <code>/ Carthage/Build/iOS/xxx.framework</code> 文件。</p>
+<ol>
+<li><code>Carthage</code> 中指定编译源码版本，有三种方式：<ol>
+<li><code>github &quot;Alamofire/Alamofire&quot; ~&gt; 3.0</code>，表示使用版本3.0以上但是低于4.0的最新版本，如3.5, 3.9</li>
+<li><code>github &quot;Alamofire/Alamofire&quot; == 3.0</code>，表示使用3.0版本</li>
+<li><code>github &quot;Alamofire/Alamofire&quot; &gt;= 3.0</code>，表示使用3.0或更高的版本</li>
+<li><code>github &quot;Alamofire/Alamofire&quot;</code>，没有指明版本号，则会自动使用最新的版本</li>
+</ol>
+</li>
+</ol>
+<p>PS：在这个过程当中，<em>Carthage</em> 将创建一些 <em>build artifacts</em>，其中最重要的是 <em>Cartfile.lock</em> 文件，里面将列出每个框架的具体版本，确保你提交了这个文件到版本控制工具里面（如Git、SVN），因为每个用到项目的人都需要它来编译相同版本的框架。完成上面的步骤并提交你的修改，项目的其他用户就只需要获取该仓库并执行 <code>carthage bootstrap</code> 就能使用你所添加的框架。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/28/CocoaPods-安装与使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="欧阳城">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ChengOuyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/28/CocoaPods-安装与使用/" itemprop="url">
+                  CocoaPods 安装与使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-28T12:21:21+08:00">
+                2017-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ol>
+<li>打开Finder/应用程序/实用工具/终端；</li>
+<li><em>CocoaPods</em> 是用 <em>Ruby</em> 写的，所以运行需要安装 <em>Ruby</em> 环境。<em>Mac</em> 中已经自带 <em>Ruby</em> 环境，如果认为 <em>Ruby</em> 环境不够新，可以先在终端输入以下命令进行更新：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem update –system</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>由于安装 <em>CocoaPods</em> 时要访问<a href="https://cocoapods.org" target="_blank" rel="external">cocoapods</a>，因为可能被屏蔽了，因此用淘宝的Ruby镜像来访问该网站，在终端输入以下命令进行替换镜像：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">gem sources --remove https://rubygems.org/</div><div class="line">gem sources -a https://ruby.taobao.org/</div></pre></td></tr></table></figure></p>
+<p>成功后，使用以下命令查看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem sources –l</div></pre></td></tr></table></figure></p>
+<p>可以看到替换镜像成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*** CURRENT SOURCES ***</div><div class="line">https://ruby.taobao.org/</div></pre></td></tr></table></figure></p>
+<p>接下来是真正的安装，在终端输入以下命令（如果 Ruby 版本过低，以下命令会报错）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install cocoapods</div></pre></td></tr></table></figure></p>
+<p>如果 Ruby 版本过低导致无法安装，则运行以下命令进行升级：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">curl -L get.rvm.io | bash -s stable    // 安装 rvm</div><div class="line">source ~/.bashrc  // 更新</div><div class="line">source ~/.bash_profile  // 更新</div><div class="line">ruby -v  // 查看当前 ruby 版本</div><div class="line">rvm list known  // 列出可安装版本</div><div class="line">rvm install 2.2  // 安装 ruby 2.2 版本</div></pre></td></tr></table></figure></p>
+<p>等待安装成功后使用以下命令配置 <em>cocoapods</em>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod setup</div></pre></td></tr></table></figure></p>
+<ol>
+<li>安装指定版本的cocoapod：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install cocoapods -v 0.34.4</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="创建工程并配置第三方类库"><a href="#创建工程并配置第三方类库" class="headerlink" title="创建工程并配置第三方类库"></a>创建工程并配置第三方类库</h4><ol>
+<li>首先打开 <em>Xcode</em> 新建一个工程，假设为 <em>Desktop/CocoaPodsDemo</em> ，并且我们要往该工程中导入 <em>AFNetworking</em> 这个类库。<br><em>AFNetworking</em> 在 <em>Github</em> 中的地址为：<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">https://github.com/AFNetworking/AFNetworking</a><br>这里也说明了如何使用CocoaPods配置该类库：<br><img src="http://upload-images.jianshu.io/upload_images/808722-be113f89b0be8c6e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置"></li>
+<li>以上说明是我们应该如何书写 <em>Podfile</em> 文件。一般非常流行和成熟的类库都得到了 <em>CocoaPods</em> 的支持，并且有这个说明。如何确定 <em>CocoaPods</em> 是否支持我们想要加入的目标类库？使用 <code>Search</code> 命令搜索类库名：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod search AFNetworking</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果 <em>CocoaPods</em> 支持，将会输出搜索到的所有类库版本和信息，以及在 <em>Podfile</em> 中配置的写法，例如：<br><img src="http://upload-images.jianshu.io/upload_images/808722-7c928ad3aeabadb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Podfile文件"></p>
+<ol>
+<li><p>先看看普通的工程目录：<br><img src="http://upload-images.jianshu.io/upload_images/808722-86e60d788da8a1c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="普通工程目录"><br>首先在我们的工程目录下创建 <em>Podfile</em> 文件，该文件用来控制 <em>CocoaPods</em> 的下载内容，该文件是没有后缀的，每个项目只需要一个 <em>Podfile</em> 文件，如果需要导入多个类库那么统一在该文件中书写下载内容。<br>创建过程：首先 <code>cd</code> 到工程目录，然后创建 <em>Podfile</em> 并且使用 <em>vim</em> 编写：</p>
+<ol>
+<li><p>创建文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd Desktop/CocoaPodsDemo/</div><div class="line">pod init    # 自动创建 Podfile 文件，也可以使用 touch Podfile 手动创建 Podfile 文件</div></pre></td></tr></table></figure>
+</li>
+<li><p>编写命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">platform:ios, &apos;7.0&apos;</div><div class="line">pod &quot;AFNetworking&quot;, &quot;~&gt;2.1&quot;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<p><em>Podfile</em> 中的两句文字的意思是，当前 <em>AFNetworking</em> 支持的 <em>iOS</em> 最高版本是 <em>iOS 7.0</em>, 要下载的 <em>AFNetworking</em> 版本是2.1。</p>
+<ol>
+<li>在有了 <em>Podfile</em> 后，在 <em>Podfile</em> 文件所在目录下输入以下命令安装类库：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod install</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>安装完成后，输出信息如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Analyzing dependencies</div><div class="line">Downloading dependencies</div><div class="line">Installing AFNetworking (2.1.0)</div><div class="line">Generating Pods project</div><div class="line">Integrating client project</div><div class="line"> [!] From now on use `CocoaPodsDemo.xcworkspace`.</div></pre></td></tr></table></figure></p>
+<p>最后一句表明，如果要正确打开工程我们应该打开最新生成的 <code>.xcworkspace</code> 文件。</p>
+<h4 id="编译运行"><a href="#编译运行" class="headerlink" title="编译运行"></a>编译运行</h4><p>如果一个项目中已经包含了 <em>CocoaPods</em> 的配置文件，但是编译却出现错误，那么我们仅需要一行命令就可以配置好所有的第三方类库了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod update</div></pre></td></tr></table></figure></p>
+<h4 id="仅添加要加入的库"><a href="#仅添加要加入的库" class="headerlink" title="仅添加要加入的库"></a>仅添加要加入的库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod install --verbose --no-repo-update</div></pre></td></tr></table></figure>
+<h4 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h4><p>在终端运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem uninstall cocoapods</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/28/iOS-国际化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="欧阳城">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ChengOuyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/28/iOS-国际化/" itemprop="url">
+                  iOS 国际化
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-28T12:19:09+08:00">
+                2017-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://upload-images.jianshu.io/upload_images/808722-4e513244a3d423f3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="应用国际化准备"><a href="#应用国际化准备" class="headerlink" title="应用国际化准备"></a>应用国际化准备</h4><ol>
+<li><p>点击<code>工程/PROJECT/Info/Localizations</code>，添加简体中文支持，如果想支持繁体，也可继续添加，其他语言亦然。<br><img src="http://upload-images.jianshu.io/upload_images/808722-c2430fb5b2f0b2d5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>修改<code>Info.plist</code>文件，添加<code>Application has localized display name</code>，值为 <code>Boolean</code> 类型的 <code>YES</code><br><img src="http://image.xiaomantou.net/FuxJ7t1NeU5cJNp1dMLAfvSbzoqT" alt="
+"></p>
+</li>
+</ol>
+<h4 id="应用名称国际化"><a href="#应用名称国际化" class="headerlink" title="应用名称国际化"></a>应用名称国际化</h4><ol>
+<li><p>创建<code>InfoPlist.strings</code>，文件名必须为<code>InfoPlist</code>，否则无效。<br><img src="http://upload-images.jianshu.io/upload_images/808722-b3339186b83c43e7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/808722-c5d71a42018259d3?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>点击之前创建的<code>InfoPlist.strings</code> - 点击右边的<code>Localizion/添加简体中文</code><br><img src="http://upload-images.jianshu.io/upload_images/808722-5e0eebb7710c59c4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>在<code>InfoPlist.strings</code>文件中对应的语言文件填入应用的名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;CFBundleDisplayName&quot; = &quot;English&quot;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/808722-bf7274872fa97c84?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/808722-463026e17dd37eb4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="应用文字国际化"><a href="#应用文字国际化" class="headerlink" title="应用文字国际化"></a>应用文字国际化</h4><ol>
+<li><p>按上边<code>应用名称国际化</code>步骤创建 <code>Localizable.strings</code> 文件<br><img src="http://upload-images.jianshu.io/upload_images/808722-728a5fbbc60759fd?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/808722-c76cb0efc27635f7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>在<code>Localizable.strings</code>文件中对应的语言文件填入对应内容的键值对<br><img src="http://upload-images.jianshu.io/upload_images/808722-2a542f7d63ad63a4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/808722-728a5fbbc60759fd?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>使用国际化文字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let loginStr = NSLocalizedString(&quot;account_login&quot;, comment: &quot;&quot;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="应用图标国际化"><a href="#应用图标国际化" class="headerlink" title="应用图标国际化"></a>应用图标国际化</h4><p><code>有机会更新^-^</code></p>
+<p>以下是测试工程的文件：<br><img src="http://upload-images.jianshu.io/upload_images/808722-712d5e13e773c811?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/28/Xcode-7-制作-framework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="欧阳城">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ChengOuyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/28/Xcode-7-制作-framework/" itemprop="url">
+                  Xcode 7 制作 framework
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-28T11:36:17+08:00">
+                2017-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h4><p><img src="http://image.xiaomantou.net/Fir9ENe0SJLgJiIKksvnc_M7iGj2" alt="创建工程" title="创建工程"></p>
+<h4 id="添加源代码"><a href="#添加源代码" class="headerlink" title="添加源代码"></a>添加源代码</h4><ol>
+<li><p>添加OC源文件<br>在 swift 制作 framework 添加 OC文件时，不能设置桥接文件，而是将 OC头文件放到框架的头文件中，如下图：<br><img src="http://upload-images.jianshu.io/upload_images/808722-6fa61b4db117f9ae?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>同时将该OC头文件设置为 public（默认添加到Private，可拖动到Public）：<br><img src="http://upload-images.jianshu.io/upload_images/808722-c8bf1ea9c2734d58?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>添加框架源代码<br><img src="http://upload-images.jianshu.io/upload_images/808722-2cc2ef95703636a5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+</ol>
+<h4 id="添加脚本"><a href="#添加脚本" class="headerlink" title="添加脚本"></a>添加脚本</h4><p>添加生成模拟器与真机都可使用的 framework 的运行脚本。</p>
+<ol>
+<li><p>给框架工程添加Target：File/New/Target<br><img src="http://upload-images.jianshu.io/upload_images/808722-d0af6b40098c0172?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://image.xiaomantou.net/FmotWoB3NZkGWER0du76zdbav66t" alt="脚本内容" title="脚本内容"><br>脚本内容如下（脚本内容是从网上搜索到的，但在工程中一直出现问题，无法用于模拟器，后来发现是缺少了<code>cp -R &quot;${SIMULATOR_DIR}/&quot; &quot;${INSTALL_DIR}/&quot;</code>）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"># Sets the target folders and the final framework product.</div><div class="line"># 如果工程名称和Framework的Target名称不一样的话，要自定义FMKNAME</div><div class="line"># 例如: FMK_NAME = &quot;MyFramework&quot;</div><div class="line">FMK_NAME=$&#123;PROJECT_NAME&#125;</div><div class="line"># Install dir will be the final output to the framework.</div><div class="line"># The following line create it in the root folder of the current project.</div><div class="line">INSTALL_DIR=$&#123;SRCROOT&#125;/Products/$&#123;FMK_NAME&#125;.framework</div><div class="line"># Working dir will be deleted after the framework creation.</div><div class="line">WRK_DIR=build</div><div class="line">DEVICE_DIR=$&#123;WRK_DIR&#125;/Release-iphoneos/$&#123;FMK_NAME&#125;.framework</div><div class="line">SIMULATOR_DIR=$&#123;WRK_DIR&#125;/Release-iphonesimulator/$&#123;FMK_NAME&#125;.framework</div><div class="line"># -configuration $&#123;CONFIGURATION&#125;</div><div class="line"># Clean and Building both architectures.</div><div class="line">xcodebuild -configuration &quot;Release&quot; -target &quot;$&#123;FMK_NAME&#125;&quot; -sdk iphoneos clean build</div><div class="line">xcodebuild -configuration &quot;Release&quot; -target &quot;$&#123;FMK_NAME&#125;&quot; -sdk iphonesimulator clean build</div><div class="line"># Cleaning the oldest.</div><div class="line">if [ -d &quot;$&#123;INSTALL_DIR&#125;&quot; ]</div><div class="line">then</div><div class="line">rm -rf &quot;$&#123;INSTALL_DIR&#125;&quot;</div><div class="line">fi</div><div class="line">mkdir -p &quot;$&#123;INSTALL_DIR&#125;&quot;</div><div class="line">cp -R &quot;$&#123;DEVICE_DIR&#125;/&quot; &quot;$&#123;INSTALL_DIR&#125;/&quot;</div><div class="line">cp -R &quot;$&#123;SIMULATOR_DIR&#125;/&quot; &quot;$&#123;INSTALL_DIR&#125;/&quot;</div><div class="line"># Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.</div><div class="line">lipo -create &quot;$&#123;DEVICE_DIR&#125;/$&#123;FMK_NAME&#125;&quot; &quot;$&#123;SIMULATOR_DIR&#125;/$&#123;FMK_NAME&#125;&quot; -output &quot;$&#123;INSTALL_DIR&#125;/$&#123;FMK_NAME&#125;&quot;</div><div class="line">rm -r &quot;$&#123;WRK_DIR&#125;&quot;</div><div class="line">open &quot;$&#123;INSTALL_DIR&#125;&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>编译脚本：Product/Build For/Profiling<br><img src="http://upload-images.jianshu.io/upload_images/808722-c0e81f46ae34d67e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>编译完脚本会自动弹出生成的framework的文件夹。</p>
+</li>
+</ol>
+<h4 id="添加framework到工程"><a href="#添加framework到工程" class="headerlink" title="添加framework到工程"></a>添加framework到工程</h4><ol>
+<li><p>将目标 framework 和其所用到的资源文件拖到目标工程中<br><img src="http://upload-images.jianshu.io/upload_images/808722-5201d15c8f62bcc6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>添加目标框架到复制文件中去<br><img src="http://upload-images.jianshu.io/upload_images/808722-136adf812bf55784?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+</ol>
+<h4 id="打包提交到-App-Store"><a href="#打包提交到-App-Store" class="headerlink" title="打包提交到 App Store"></a>打包提交到 App Store</h4><p>在使用自制的 <em>Framework</em> 的应用程序打包提交到 <em>App Store</em> 的时候，可能会遇到以下问题<code>“Unsupported architectures. Your executable contains unsupported architectures &#39;[x86_64, i386]&#39;”</code>，此时在你<strong>要打包提交的目标程序</strong>的<code>Build Phases</code>下添加<code>Run Script</code>，并将以下内容复制进去：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">APP_PATH=&quot;$&#123;TARGET_BUILD_DIR&#125;/$&#123;WRAPPER_NAME&#125;&quot;</div><div class="line"># This script loops through the frameworks embedded in the application and</div><div class="line"># removes unused architectures.</div><div class="line">find &quot;$APP_PATH&quot; -name &apos;*.framework&apos; -type d | while read -r FRAMEWORK</div><div class="line">do</div><div class="line">FRAMEWORK_EXECUTABLE_NAME=$(defaults read &quot;$FRAMEWORK/Info.plist&quot; CFBundleExecutable)</div><div class="line">FRAMEWORK_EXECUTABLE_PATH=&quot;$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME&quot;</div><div class="line">echo &quot;Executable is $FRAMEWORK_EXECUTABLE_PATH&quot;</div><div class="line">EXTRACTED_ARCHS=()</div><div class="line">for ARCH in $ARCHS</div><div class="line">do</div><div class="line">echo &quot;Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME&quot;</div><div class="line">lipo -extract &quot;$ARCH&quot; &quot;$FRAMEWORK_EXECUTABLE_PATH&quot; -o &quot;$FRAMEWORK_EXECUTABLE_PATH-$ARCH&quot;</div><div class="line">EXTRACTED_ARCHS+=(&quot;$FRAMEWORK_EXECUTABLE_PATH-$ARCH&quot;)</div><div class="line">done</div><div class="line">echo &quot;Merging extracted architectures: $&#123;ARCHS&#125;&quot;</div><div class="line">lipo -o &quot;$FRAMEWORK_EXECUTABLE_PATH-merged&quot; -create &quot;$&#123;EXTRACTED_ARCHS[@]&#125;&quot;</div><div class="line">rm &quot;$&#123;EXTRACTED_ARCHS[@]&#125;&quot;</div><div class="line">echo &quot;Replacing original executable with thinned version&quot;</div><div class="line">rm &quot;$FRAMEWORK_EXECUTABLE_PATH&quot;</div><div class="line">mv &quot;$FRAMEWORK_EXECUTABLE_PATH-merged&quot; &quot;$FRAMEWORK_EXECUTABLE_PATH&quot;</div><div class="line">done</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/808722-66eccd423305ba62.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><em>到此就结束了</em></p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ol>
+<li><a href="https://robots.thoughtbot.com/creating-your-first-ios-framework" target="_blank" rel="external">Creating your first iOS Framework</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/28/使用-xcworkspace-管理-iOS-工程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="欧阳城">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ChengOuyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/28/使用-xcworkspace-管理-iOS-工程/" itemprop="url">
+                  使用 xcworkspace 管理 iOS 工程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-28T11:34:07+08:00">
+                2017-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>首先创建目标工程<br><img src="http://upload-images.jianshu.io/upload_images/808722-93579b276bc93fa3?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/808722-4cd04d007ff6d5e2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="">  </p>
+</li>
+<li><p>创建工作空间<code>xcworkspace</code>文件，并将创建的<code>*.xcworkspace</code>文件放到刚创建的目标工程同级目录下<br><img src="http://upload-images.jianshu.io/upload_images/808722-6d983cd8d472954d?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/808722-9cfe3f4ff8feeec6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>关闭刚刚创建的目标工程，打开<code>*.xcworkspace</code>文件，把刚刚创建的目标工程添加到工作空间中来<br><img src="http://upload-images.jianshu.io/upload_images/808722-dab6c30a1c207ed0?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/808722-167e788bd16469c8?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/808722-6c6a78020755b51d?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="">  </p>
+</li>
+<li><p>如果要添加一些框架，则将目标框架放到与目标工程同级目录下<br><img src="http://upload-images.jianshu.io/upload_images/808722-f7ff128d3688e3c5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/808722-3829418ecfecf67a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>与<code>步骤3</code>一样，将框架添加到工作空间中来<br><img src="http://upload-images.jianshu.io/upload_images/808722-930aa09ff00d97d7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/808722-f6e24dd5ba35db97?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>在目标工程中引入框架<br><img src="http://upload-images.jianshu.io/upload_images/808722-fc384fad36f87ba8?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/808722-57719786b7321759?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/808722-49386ebec0e4cc4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>接下来就可以在目标工程中使用引入的框架<br><img src="http://upload-images.jianshu.io/upload_images/808722-2c198d51d087bc6b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><em>PS：如果要使用到引入框架的方法，需要将对应的类和其方法设置为<code>public</code>，具体在<a href="/2017/04/28/Xcode-7-制作-framework/">Xcode 7 制作 framework</a>里有介绍。</em></p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -287,7 +1139,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-28T09:37:05+08:00">
                 2017-04-28
@@ -299,6 +1151,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -430,7 +1304,7 @@
                alt="欧阳城" />
           <p class="site-author-name" itemprop="name">欧阳城</p>
            
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">iOS</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -438,12 +1312,21 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
           
 
           
@@ -451,8 +1334,8 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -502,7 +1385,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

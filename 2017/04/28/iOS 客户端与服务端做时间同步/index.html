@@ -90,17 +90,19 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="我们做客户端的时候，有时会需要对客户端与服务器的时间进行同步，比如抢购活动、倒计时等。这时我们要考虑如何准备地与服务器的时间进行同步，同时防止用户本地的时间有误差时导致的问题。 为了实现以上需求，我们需要：  获取服务器某一时刻 A 的时间；  记录获取到时刻 A 时的本地时间 B；  需要用到时间时，获取当前本地时间 C，当 C - B 作为时间间隔 D，则 A + D 则是当前服务器的时间。">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/04/27/hello-world/index.html">
+<meta property="og:title" content="iOS 客户端与服务端做时间同步">
+<meta property="og:url" content="http://yoursite.com/2017/04/28/iOS 客户端与服务端做时间同步/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-04-27T11:33:55.000Z">
+<meta property="og:description" content="我们做客户端的时候，有时会需要对客户端与服务器的时间进行同步，比如抢购活动、倒计时等。这时我们要考虑如何准备地与服务器的时间进行同步，同时防止用户本地的时间有误差时导致的问题。 为了实现以上需求，我们需要：  获取服务器某一时刻 A 的时间；  记录获取到时刻 A 时的本地时间 B；  需要用到时间时，获取当前本地时间 C，当 C - B 作为时间间隔 D，则 A + D 则是当前服务器的时间。">
+<meta property="og:image" content="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-416679.jpg">
+<meta property="og:updated_time" content="2017-04-28T01:38:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="iOS 客户端与服务端做时间同步">
+<meta name="twitter:description" content="我们做客户端的时候，有时会需要对客户端与服务器的时间进行同步，比如抢购活动、倒计时等。这时我们要考虑如何准备地与服务器的时间进行同步，同时防止用户本地的时间有误差时导致的问题。 为了实现以上需求，我们需要：  获取服务器某一时刻 A 的时间；  记录获取到时刻 A 时的本地时间 B；  需要用到时间时，获取当前本地时间 C，当 C - B 作为时间间隔 D，则 A + D 则是当前服务器的时间。">
+<meta name="twitter:image" content="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-416679.jpg">
 
 
 
@@ -128,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/27/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/28/iOS 客户端与服务端做时间同步/"/>
 
 
 
 
 
-  <title>Hello World | Hexo</title>
+  <title>iOS 客户端与服务端做时间同步 | Hexo</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -253,7 +255,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/27/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/28/iOS 客户端与服务端做时间同步/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -274,7 +276,7 @@
             
             
               
-                Hello World
+                iOS 客户端与服务端做时间同步
               
             
           </h1>
@@ -289,8 +291,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-27T19:30:58+08:00">
-                2017-04-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-28T09:37:05+08:00">
+                2017-04-28
               </time>
             
 
@@ -324,15 +326,38 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-416679.jpg" alt=""></h2><p>我们做客户端的时候，有时会需要对客户端与服务器的时间进行同步，比如抢购活动、倒计时等。这时我们要考虑如何准备地与服务器的时间进行同步，同时防止用户本地的时间有误差时导致的问题。</p>
+<p>为了实现以上需求，我们需要：</p>
+<ol>
+<li><p>获取服务器某一时刻 <code>A</code> 的时间；</p>
+</li>
+<li><p>记录获取到时刻 <code>A</code> 时的本地时间 <code>B</code>；</p>
+</li>
+<li><p>需要用到时间时，获取当前本地时间 <code>C</code>，当 <code>C - B</code> 作为时间间隔 <code>D</code>，则 <code>A + D</code> 则是当前服务器的时间。</p>
+</li>
+</ol>
+<p>分析：</p>
+<ol>
+<li><p>从上面的步骤，我们可以得到，要消除用户修改时间导致的影响，必须保证 <code>B</code> 和 <code>C</code> 与系统时间无关；</p>
+</li>
+<li><p><code>iOS</code> 中正好有提供这样两个接口：</p>
+<ol>
+<li>获取设备当前时间 <code>Now</code>，该值受系统时间影响，用户如果修改时间，值也会随着变化；</li>
+<li>获取设备上次重启的时间 <code>BootTime</code>，该值受系统时间影响，用户如果修改时间，值也会随着变化；；</li>
+</ol>
+</li>
+<li><p>由上面 <code>iOS</code> 提供的两个接口，我们可以获取本地时间 <code>B</code>、<code>C</code>：设备自上次重启后运行的时间（<code>BootTime - Now</code>），该值与系统时间无关；</p>
+</li>
+</ol>
+<p>代码实现：</p>
+<p>获取当前 Unix Time：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">static func now() -&gt; Int &#123;</div><div class="line">    var now =  timeval()</div><div class="line">    var tz = timezone()</div><div class="line">    gettimeofday(&amp;now, &amp;tz)</div><div class="line">    return now.tv_sec</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>获取设备上次重启的 Unix Time：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">func boottime() -&gt; Int &#123;</div><div class="line">    </div><div class="line">    var mid = [CTL_KERN, KERN_BOOTTIME]</div><div class="line">    var boottime = timeval()</div><div class="line">    var size = MemoryLayout.size(ofValue: boottime)</div><div class="line">    </div><div class="line">    if sysctl(&amp;mid, 2, &amp;boottime, &amp;size, nil, 0) != -1 &#123;</div><div class="line">        return boottime.tv_sec</div><div class="line">    &#125;</div><div class="line">    return 0</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>时间校准：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 接口获取服务器时间处理</div><div class="line">let serverTime = xxx						// 获取到的服务器时间</div><div class="line">let runTime0 = now() - boottime()			// 当前设备运行时间</div><div class="line"></div><div class="line">// 需要用到时间时</div><div class="line">let runTime1 = now() - boottime()			// 当前时刻设备运行时间</div><div class="line">let currentTime = serverTime + runTime1 	// 当前服务器时间</div></pre></td></tr></table></figure>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="http://mrpeak.cn/blog/ios-time/" target="_blank" rel="external">iOS关于时间的处理
+</a></p>
 
       
     </div>
@@ -369,15 +394,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/28/iOS 客户端与服务端做时间同步/" rel="next" title="iOS 客户端与服务端做时间同步">
-                <i class="fa fa-chevron-left"></i> iOS 客户端与服务端做时间同步
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/27/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -488,7 +513,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">1.0.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
